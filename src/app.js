@@ -1,14 +1,18 @@
 console.log("app.js installed");
 
 //JSX - JavaScript XML
-let appObj = {
+const appObj = {
     title : "The last samurai warrior",
-    subtitle : "Ronin 47"
+    subtitle : "Ronin 47",
+    options : ['One','Two']
 }
-var template = (
+
+
+const template = (
     <div>
         <h1>{appObj.title}</h1>
-        <p>{appObj.subtitle}</p>
+        {appObj.subtitle && <p>{appObj.subtitle}</p>}
+        {appObj.options.length > 0 ? <p>Here are your options </p> : <p>No options</p>}
             <ul>
                 <li>item one</li>
                 <li>item two</li>
@@ -20,17 +24,17 @@ if(location){
     return <p>Location : {location}</p>
 }
 }
- var user = {
+ const user = {
   userName     : 'Keith Murray',
-  userAge      : 42,
+  userAge      : 32,
   userLocation :"New York City"
  }
  
-    let templateTwo = (<div>
-        <h1>{user.userName}</h1>
-        <p>Age : {user.userAge}</p>
+    const templateTwo = (<div>
+        <h1>{user.userName ? user.userName : 'Anonymous'}</h1>
+         {(user.userAge && user.userAge  > 18) && <p>Age :{user.userAge}</p>}
         {getLocation(user.userLocation)}
       </div>);
 
-var appRoot = document.getElementById("app-info");
-ReactDOM.render(templateTwo, appRoot);
+const appRoot = document.getElementById("app-info");
+ReactDOM.render(template, appRoot);
