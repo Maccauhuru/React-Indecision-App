@@ -29,12 +29,25 @@ if(location){
   userAge      : 32,
   userLocation :"New York City"
  }
- 
-    const templateTwo = (<div>
-        <h1>{user.userName ? user.userName : 'Anonymous'}</h1>
-         {(user.userAge && user.userAge  > 18) && <p>Age :{user.userAge}</p>}
-        {getLocation(user.userLocation)}
-      </div>);
+
+let count = 0;
+const addOne = ()=> console.log(count++);
+const minusOne = ()=>console.log("minusOne");
+const reset =()=>console.log("reset");
+const templateTwo = (
+  <div>
+    <h1>Count: {count} </h1>
+    <button id="add-btn" onClick={addOne}>
+      +1
+    </button>
+    <button id="add-btn" onClick={minusOne}>
+      -1
+    </button>
+    <button id="add-btn" onClick={reset}>
+      reset
+    </button>
+  </div>
+);
 
 const appRoot = document.getElementById("app-info");
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);
