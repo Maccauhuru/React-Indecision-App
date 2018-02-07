@@ -68,7 +68,7 @@ var addOne = function addOne() {
     return console.log(count++);
 };
 var minusOne = function minusOne() {
-    return console.log("minusOne");
+    return console.log(count--);
 };
 var reset = function reset() {
     return console.log("reset");

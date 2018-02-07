@@ -32,7 +32,7 @@ if(location){
 
 let count = 0;
 const addOne = ()=> console.log(count++);
-const minusOne = ()=>console.log("minusOne");
+const minusOne = ()=>console.log(count--);
 const reset =()=>console.log("reset");
 const templateTwo = (
   <div>
