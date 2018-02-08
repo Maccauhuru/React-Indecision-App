@@ -1,23 +1,47 @@
+/*jshint esversion:6 */
 console.log("app.js installed");
 
 //JSX - JavaScript XML
 const appObj = {
     title : "The last samurai warrior",
     subtitle : "Ronin 47",
-    options : ['One','Two']
+    options : []
 }
 
+const onFormSubmit =(e)=>{
+  e.preventDefault();
+  const option = e.target.elements.option.value;
+  if(option){
+    appObj.options.push(option);
+    e.target.elements.option.value='';
+    renderIndecisionApp();
+  }
+}
 
+const removeArray =()=>{
+appObj.options=[];
+renderIndecisionApp();
+}
+
+const renderIndecisionApp =()=>{
 const template = (
     <div>
         <h1>{appObj.title}</h1>
         {appObj.subtitle && <p>{appObj.subtitle}</p>}
         {appObj.options.length > 0 ? <p>Here are your options </p> : <p>No options</p>}
+        <button id="btn-Remove" onClick={removeArray}>Remove All</button>
             <ul>
                 <li>item one</li>
                 <li>item two</li>
             </ul>
+            <p>{appObj.options.length}</p>
+            <form onSubmit={onFormSubmit}>
+            <input type="text" name="option"/>
+            <button>Add Option</button>
+            </form>
     </div>);
+    ReactDOM.render(template, appRoot);
+}
 
 function getLocation(location){
 if(location){
@@ -30,24 +54,7 @@ if(location){
   userLocation :"New York City"
  }
 
-let count = 0;
-const addOne = ()=> console.log(count++);
-const minusOne = ()=>console.log(count--);
-const reset =()=>console.log("reset");
-const templateTwo = (
-  <div>
-    <h1>Count: {count} </h1>
-    <button id="add-btn" onClick={addOne}>
-      +1
-    </button>
-    <button id="add-btn" onClick={minusOne}>
-      -1
-    </button>
-    <button id="add-btn" onClick={reset}>
-      reset
-    </button>
-  </div>
-);
-
 const appRoot = document.getElementById("app-info");
-ReactDOM.render(templateTwo, appRoot);
+renderIndecisionApp();
+
+

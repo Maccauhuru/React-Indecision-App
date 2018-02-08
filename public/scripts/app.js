@@ -1,51 +1,90 @@
 "use strict";
 
+/*jshint esversion:6 */
 console.log("app.js installed");
 
 //JSX - JavaScript XML
 var appObj = {
     title: "The last samurai warrior",
     subtitle: "Ronin 47",
-    options: ['One', 'Two']
+    options: []
 };
 
-var template = React.createElement(
-    "div",
-    null,
-    React.createElement(
-        "h1",
-        null,
-        appObj.title
-    ),
-    appObj.subtitle && React.createElement(
-        "p",
-        null,
-        appObj.subtitle
-    ),
-    appObj.options.length > 0 ? React.createElement(
-        "p",
-        null,
-        "Here are your options "
-    ) : React.createElement(
-        "p",
-        null,
-        "No options"
-    ),
-    React.createElement(
-        "ul",
+var onFormSubmit = function onFormSubmit(e) {
+    e.preventDefault();
+    var option = e.target.elements.option.value;
+    if (option) {
+        appObj.options.push(option);
+        e.target.elements.option.value = '';
+        renderIndecisionApp();
+    }
+};
+
+var removeArray = function removeArray() {
+    appObj.options = [];
+    renderIndecisionApp();
+};
+
+var renderIndecisionApp = function renderIndecisionApp() {
+    var template = React.createElement(
+        "div",
         null,
         React.createElement(
-            "li",
+            "h1",
             null,
-            "item one"
+            appObj.title
+        ),
+        appObj.subtitle && React.createElement(
+            "p",
+            null,
+            appObj.subtitle
+        ),
+        appObj.options.length > 0 ? React.createElement(
+            "p",
+            null,
+            "Here are your options "
+        ) : React.createElement(
+            "p",
+            null,
+            "No options"
         ),
         React.createElement(
-            "li",
+            "button",
+            { id: "btn-Remove", onClick: removeArray },
+            "Remove All"
+        ),
+        React.createElement(
+            "ul",
             null,
-            "item two"
+            React.createElement(
+                "li",
+                null,
+                "item one"
+            ),
+            React.createElement(
+                "li",
+                null,
+                "item two"
+            )
+        ),
+        React.createElement(
+            "p",
+            null,
+            appObj.options.length
+        ),
+        React.createElement(
+            "form",
+            { onSubmit: onFormSubmit },
+            React.createElement("input", { type: "text", name: "option" }),
+            React.createElement(
+                "button",
+                null,
+                "Add Option"
+            )
         )
-    )
-);
+    );
+    ReactDOM.render(template, appRoot);
+};
 
 function getLocation(location) {
     if (location) {
@@ -63,42 +102,5 @@ var user = {
     userLocation: "New York City"
 };
 
-var count = 0;
-var addOne = function addOne() {
-    return console.log(count++);
-};
-var minusOne = function minusOne() {
-    return console.log(count--);
-};
-var reset = function reset() {
-    return console.log("reset");
-};
-var templateTwo = React.createElement(
-    "div",
-    null,
-    React.createElement(
-        "h1",
-        null,
-        "Count: ",
-        count,
-        " "
-    ),
-    React.createElement(
-        "button",
-        { id: "add-btn", onClick: addOne },
-        "+1"
-    ),
-    React.createElement(
-        "button",
-        { id: "add-btn", onClick: minusOne },
-        "-1"
-    ),
-    React.createElement(
-        "button",
-        { id: "add-btn", onClick: reset },
-        "reset"
-    )
-);
-
 var appRoot = document.getElementById("app-info");
-ReactDOM.render(templateTwo, appRoot);
+renderIndecisionApp();
