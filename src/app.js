@@ -6,7 +6,7 @@ const appObj = {
     title : "The last samurai warrior",
     subtitle : "Ronin 47",
     options : []
-}
+};
 
 const onFormSubmit =(e)=>{
   e.preventDefault();
@@ -16,12 +16,12 @@ const onFormSubmit =(e)=>{
     e.target.elements.option.value='';
     renderIndecisionApp();
   }
-}
+};
 
 const removeArray =()=>{
 appObj.options=[];
 renderIndecisionApp();
-}
+};
 
 const numbersArr = [200,500,1000];
 
@@ -38,12 +38,6 @@ const template = (
     <button id="btn-Remove" onClick={removeArray}>
       Remove All
     </button>
-    {/*
-      numbersArr.map((number)=>{
-      return <p key={number}>Number :{number}</p>;
-      })
-    */}
-
     <ul>
       {appObj.options.map((text)=>{
        return <li key="text">{text}</li>
