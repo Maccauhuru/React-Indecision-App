@@ -23,23 +23,40 @@ appObj.options=[];
 renderIndecisionApp();
 }
 
+const numbersArr = [200,500,1000];
+
 const renderIndecisionApp =()=>{
 const template = (
-    <div>
-        <h1>{appObj.title}</h1>
-        {appObj.subtitle && <p>{appObj.subtitle}</p>}
-        {appObj.options.length > 0 ? <p>Here are your options </p> : <p>No options</p>}
-        <button id="btn-Remove" onClick={removeArray}>Remove All</button>
-            <ul>
-                <li>item one</li>
-                <li>item two</li>
-            </ul>
-            <p>{appObj.options.length}</p>
-            <form onSubmit={onFormSubmit}>
-            <input type="text" name="option"/>
-            <button>Add Option</button>
-            </form>
-    </div>);
+  <div>
+    <h1>{appObj.title}</h1>
+    {appObj.subtitle && <p>{appObj.subtitle}</p>}
+    {appObj.options.length > 0 ? (
+      <p>Here are your options </p>
+    ) : (
+      <p>No options</p>
+    )}
+    <button id="btn-Remove" onClick={removeArray}>
+      Remove All
+    </button>
+    {/*
+      numbersArr.map((number)=>{
+      return <p key={number}>Number :{number}</p>;
+      })
+    */}
+
+    <ul>
+      {appObj.options.map((text)=>{
+       return <li key="text">{text}</li>
+      })
+    }
+    </ul>
+    <p>{appObj.options.length}</p>
+    <form onSubmit={onFormSubmit}>
+      <input type="text" name="option" />
+      <button>Add Option</button>
+    </form>
+  </div>
+);
     ReactDOM.render(template, appRoot);
 }
 
