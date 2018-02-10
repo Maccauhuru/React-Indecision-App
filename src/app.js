@@ -23,6 +23,12 @@ appObj.options=[];
 renderIndecisionApp();
 };
 
+const onMakeDecision =()=>{
+  const randNum = Math.floor(Math.random() * appObj.options.length);
+  const option = appObj.options[randNum];
+  console.log(option);
+};
+
 const numbersArr = [200,500,1000];
 
 const renderIndecisionApp =()=>{
@@ -35,12 +41,13 @@ const template = (
     ) : (
       <p>No options</p>
     )}
-    <button id="btn-Remove" onClick={removeArray}>
-      Remove All
-    </button>
+  
+    <button disabled={appObj.options.length===0} id="btn-decision" onClick={onMakeDecision}>What Should i Do ?</button>
+    <button id="btn-Remove" onClick={removeArray}>Remove All</button>
+    
     <ul>
       {appObj.options.map((text)=>{
-       return <li key="text">{text}</li>
+       return <li key={text}>{text}</li>
       })
     }
     </ul>
