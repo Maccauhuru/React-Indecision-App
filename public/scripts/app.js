@@ -1,45 +1,116 @@
-'use strict';
+"use strict";
 
 /*jshint esversion:6 */
+console.log("app.js installed");
 
-var textObj = {
-  text: "here is some text"
+//JSX - JavaScript XML
+var appObj = {
+  title: "The last samurai warrior",
+  subtitle: "Ronin 47",
+  options: []
 };
 
-var visibility = false;
-
-var toggleVisibility = function toggleVisibility() {
-  visibility = !visibility;
-  renderApp();
+var onFormSubmit = function onFormSubmit(e) {
+  e.preventDefault();
+  var option = e.target.elements.option.value;
+  if (option) {
+    appObj.options.push(option);
+    e.target.elements.option.value = '';
+    renderIndecisionApp();
+  }
 };
 
-var renderApp = function renderApp() {
+var removeArray = function removeArray() {
+  appObj.options = [];
+  renderIndecisionApp();
+};
+
+var onMakeDecision = function onMakeDecision() {
+  var randNum = Math.floor(Math.random() * appObj.options.length);
+  var option = appObj.options[randNum];
+  console.log(option);
+};
+
+var numbersArr = [200, 500, 1000];
+
+var renderIndecisionApp = function renderIndecisionApp() {
   var template = React.createElement(
-    'div',
+    "div",
     null,
     React.createElement(
-      'h1',
+      "h1",
       null,
-      'Visibility Toogle'
+      appObj.title
+    ),
+    appObj.subtitle && React.createElement(
+      "p",
+      null,
+      appObj.subtitle
+    ),
+    appObj.options.length > 0 ? React.createElement(
+      "p",
+      null,
+      "Here are your options "
+    ) : React.createElement(
+      "p",
+      null,
+      "No more options"
     ),
     React.createElement(
-      'button',
-      { onClick: toggleVisibility },
-      visibility ? 'hide details' : 'show details'
+      "button",
+      { disabled: appObj.options.length === 0, id: "btn-decision", onClick: onMakeDecision },
+      "What Should i Do ?"
     ),
-    visibility && React.createElement(
-      'div',
+    React.createElement(
+      "button",
+      { id: "btn-Remove", onClick: removeArray },
+      "Remove All"
+    ),
+    React.createElement(
+      "ul",
       null,
+      appObj.options.map(function (text) {
+        return React.createElement(
+          "li",
+          { key: text },
+          text
+        );
+      })
+    ),
+    React.createElement(
+      "p",
+      null,
+      appObj.options.length
+    ),
+    React.createElement(
+      "form",
+      { onSubmit: onFormSubmit },
+      React.createElement("input", { type: "text", name: "option" }),
       React.createElement(
-        'p',
+        "button",
         null,
-        'Hey there.React is tough in the beginning'
+        "Add Option"
       )
     )
   );
-
-  var appRoot = document.getElementById('app-info');
   ReactDOM.render(template, appRoot);
 };
 
-renderApp();
+function getLocation(location) {
+  if (location) {
+    return React.createElement(
+      "p",
+      null,
+      "Location : ",
+      location
+    );
+  }
+}
+var user = {
+  userName: 'Keith Murray',
+  userAge: 32,
+  userLocation: "New York City"
+};
+
+var appRoot = document.getElementById("app-info");
+renderIndecisionApp();

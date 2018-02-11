@@ -39,7 +39,7 @@ const template = (
     {appObj.options.length > 0 ? (
       <p>Here are your options </p>
     ) : (
-      <p>No options</p>
+      <p>No more options</p>
     )}
   
     <button disabled={appObj.options.length===0} id="btn-decision" onClick={onMakeDecision}>What Should i Do ?</button>
