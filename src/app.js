@@ -1,9 +1,22 @@
-/*jshint esversuin:6*/
+/*jshint esversion:6*/
+class IndecisionApp extends React.Component{
+  render(){
+    const title = "My Indecision App";
+    const subtitle = "Put Your Hands Where My Eyes Can See";
+    const options = ['Thing one','Thing two','Thing three','Thing Four'];
+    return (<div>
+      <Header title={title} subtitle={subtitle}/>
+      <Action />
+      <Options options={options}/>
+      <AddOption />
+      </div>);
+  }
+}
 class Header extends React.Component {
 render() {
   return (<div>
-          <h1>Indecision App</h1>
-          <h2>Put Your Hands Where My Eyes Can See </h2>
+          <h1>{this.props.title}</h1>
+          <h2>{this.props.subtitle}</h2>
           </div>);
     }
 }
@@ -16,27 +29,28 @@ render() {
 
 class Options extends React.Component{
 render(){
-  return (<div>
-    <p>Options Component Here</p>
-    </div>);
+  return <div>
+      {
+        this.props.options.map(option =><Option key={option} optionText={option} />)
+      }
+    </div>;
 }
+}
+
+class Option extends React.Component{
+  render(){
+    return (<div>
+      {this.props.optionText}
+      </div>);
+  }
 }
 
 class AddOption extends React.Component {
   render(){
     return (<div>
-    <p>Add Options Here</p>
+    Add Options Here
     </div>);
   }
 }
-
-const jsx = (
-  <div>
-  <Header />
-  <Action />
-  <Options />
-  <AddOption />
-  </div>
-      );
 let appRoot = document.getElementById('app-info');
-ReactDOM.render(jsx,appRoot);
+ReactDOM.render(<IndecisionApp />,appRoot);
