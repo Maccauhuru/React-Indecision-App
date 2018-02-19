@@ -22,7 +22,7 @@ render() {
 }
 
 class Action extends React.Component{
-handlePick (){alert("chainsaw")};
+handlePick (){alert("list todo's")};
 render() {
   return <div><button onClick={this.handlePick}>What Should I Do ?</button></div>;
 }
@@ -66,7 +66,7 @@ handleAddOption (e){
     return (<div>
     <form onSubmit = {this.handleAddOption}>
     <input type="text" id="addOptionInput"/>
-    <button>submit</button>
+    <button>Submit</button>
     </form>
     </div>);
   }

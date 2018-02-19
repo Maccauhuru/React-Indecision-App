@@ -82,7 +82,7 @@ var Action = function (_React$Component3) {
   _createClass(Action, [{
     key: "handlePick",
     value: function handlePick() {
-      alert("chainsaw");
+      alert("list todo's");
     }
   }, {
     key: "render",
@@ -195,7 +195,7 @@ var AddOption = function (_React$Component6) {
           React.createElement(
             "button",
             null,
-            "submit"
+            "Submit"
           )
         )
       );
