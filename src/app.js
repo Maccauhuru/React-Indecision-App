@@ -22,7 +22,7 @@ render() {
 }
 
 class Action extends React.Component{
-handlePick (){alert("list todoS")};
+handlePick (){alert("list of todoS")};
 render() {
   return <div><button onClick={this.handlePick}>What Should I Do ?</button></div>;
 }
