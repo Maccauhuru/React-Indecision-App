@@ -21,7 +21,9 @@ class Header extends React.Component{
 class Action extends React.Component{
   constructor(props){
     super(props);
-    this.state = { visibility: false };
+    this.state = { 
+      visibility: false
+     };
     this.handleToggleVisibility = this.handleToggleVisibility.bind(this);
   }
   handleToggleVisibility(){

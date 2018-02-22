@@ -71,7 +71,9 @@ var Action = function (_React$Component3) {
 
     var _this3 = _possibleConstructorReturn(this, (Action.__proto__ || Object.getPrototypeOf(Action)).call(this, props));
 
-    _this3.state = { visibility: false };
+    _this3.state = {
+      visibility: false
+    };
     _this3.handleToggleVisibility = _this3.handleToggleVisibility.bind(_this3);
     return _this3;
   }
