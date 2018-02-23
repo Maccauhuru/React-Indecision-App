@@ -11,7 +11,7 @@ class IndecisionApp extends React.Component{
     const subtitle = "Put Your Hands Where My Eyes Can See";
     return (<div>
       <Header title={title} subtitle={subtitle}/>
-      <Action hasOptions={this.state.options.length > 0 ? '':''}/>
+      <Action hasOptions={this.state.options.length > 0}/>
       <Options options={this.state.options}/>
       <AddOption />
       </div>);
@@ -27,10 +27,10 @@ render() {
 }
 
 class Action extends React.Component{
-handlePick (){alert("list of todoS")};
+handlePick (){alert("list of TODO)};
 render() {
   return <div>
-  <button onClick={this.handlePick} disabled={this.props.hasOptions}>What Should I Do ?
+  <button onClick={this.handlePick} disabled={!this.props.hasOptions}>What Should I Do ?
   </button>
   </div>;
 }
