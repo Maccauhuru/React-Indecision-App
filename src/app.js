@@ -1,13 +1,18 @@
 /*jshint esversion:6*/
 class IndecisionApp extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      options : ['Thing one','Thing two','Thing three','Thing Four']
+    };
+  }
   render(){
     const title = "My Indecision App";
     const subtitle = "Put Your Hands Where My Eyes Can See";
-    const options = ['Thing one','Thing two','Thing three','Thing Four'];
     return (<div>
       <Header title={title} subtitle={subtitle}/>
-      <Action />
-      <Options options={options}/>
+      <Action hasOptions={this.state.options.length > 0 ? '':''}/>
+      <Options options={this.state.options}/>
       <AddOption />
       </div>);
   }
@@ -24,7 +29,10 @@ render() {
 class Action extends React.Component{
 handlePick (){alert("list of todoS")};
 render() {
-  return <div><button onClick={this.handlePick}>What Should I Do ?</button></div>;
+  return <div>
+  <button onClick={this.handlePick} disabled={this.props.hasOptions}>What Should I Do ?
+  </button>
+  </div>;
 }
 }
 
