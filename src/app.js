@@ -27,12 +27,12 @@ render() {
 }
 
 class Action extends React.Component{
-handlePick (){alert("list of TODO)};
+handlePick (){alert("list of TODO")};
 render() {
-  return <div>
+  return (<div>
   <button onClick={this.handlePick} disabled={!this.props.hasOptions}>What Should I Do ?
   </button>
-  </div>;
+  </div>);
 }
 }
 
