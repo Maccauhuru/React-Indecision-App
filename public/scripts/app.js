@@ -224,7 +224,7 @@ var AddOption = function (_React$Component6) {
         this.state.error && React.createElement(
           'p',
           null,
-          'this.state.error'
+          this.state.error
         ),
         React.createElement(
           'form',
