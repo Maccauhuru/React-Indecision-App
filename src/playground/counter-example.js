@@ -7,7 +7,7 @@ this.handleAddOne = this.handleAddOne.bind(this);
 this.handleSubtractOne = this.handleSubtractOne.bind(this);
 this.handleReset = this.handleReset.bind(this);
 this.state = {
-count : 0
+count : props.count
 };
 }
 handleAddOne (){
@@ -33,13 +33,17 @@ handleReset(){
 }
 render() {
   return (<div>
-    <h1>Count : {this.state.count}</h1>
+    <h1>Count : {this.state.count && this.state.count}</h1>
     <button onClick={this.handleAddOne}>+1</button>
     <button onClick={this.handleSubtractOne}>-1</button>
     <button onClick={this.handleReset}>Reset</button>
     </div>);
 }
 }
+
+Counter.defaultProps = {
+  count : 0
+};
 
 ReactDOM.render(<Counter />,appRoot);
 
