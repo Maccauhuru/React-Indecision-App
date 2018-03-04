@@ -166,7 +166,7 @@ var Options = function Options(props) {
     props.options.length === 0 && React.createElement(
       "p",
       null,
-      "Please enter items to get started"
+      "Please Enter Items To Get Started"
     ),
     props.options.map(function (option) {
       return React.createElement(Option, {

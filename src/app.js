@@ -107,7 +107,7 @@ const Options = props => {
   return (
     <div>
       <button onClick={props.handleDeleteOptions}>Remove All</button>
-      {props.options.length ===0 && <p>Please enter items to get started</p>}
+      {props.options.length ===0 && <p>Please Enter Items To Get Started</p>}
       {props.options.map(option => (
         <Option
           key={option}
