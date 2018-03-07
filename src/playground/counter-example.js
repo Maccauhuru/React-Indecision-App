@@ -7,9 +7,35 @@ this.handleAddOne = this.handleAddOne.bind(this);
 this.handleSubtractOne = this.handleSubtractOne.bind(this);
 this.handleReset = this.handleReset.bind(this);
 this.state = {
-count : props.count
+count : 0
 };
 }
+
+//on component mount set the state to count from localStorage
+componentDidMount(){
+try{
+const strCount = localStorage.getItem("count");
+const count = parseInt(strCount,10);
+
+ if (!isNaN(count)) {
+        this.setState(() => ({ count }));
+      }
+}
+ catch(e){
+   //Do nothing on Error
+ }
+}
+//if value of count changes update it in localStorage
+componentDidUpdate (prevProps,prevState){
+if(prevState.count !== this.state.count){
+  const json = this.state.count;
+  localStorage.setItem('count',json);
+}
+}
+
+
+
+
 handleAddOne (){
  this.setState((prevState)=>{
    return {
@@ -40,10 +66,6 @@ render() {
     </div>);
 }
 }
-
-Counter.defaultProps = {
-  count : 0
-};
 
 ReactDOM.render(<Counter />,appRoot);
 
