@@ -69,29 +69,33 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__person__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils__ = __webpack_require__(1);
 /*jshint esversion:6*/
-// import { square ,add } from "./utils";
-// console.log("app.js is running");
-// console.log(square(7));
-// console.log(add(5667,15));
+
+console.log("app.js is running");
+console.log(__WEBPACK_IMPORTED_MODULE_0__utils__["c" /* square */](7));
+console.log(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* add */](5667,15));
+console.log(__WEBPACK_IMPORTED_MODULE_0__utils__["b" /* default */](100,25));
 
 
-
-console.log(__WEBPACK_IMPORTED_MODULE_0__person__["b" /* isAdult */](18));
-console.log(__WEBPACK_IMPORTED_MODULE_0__person__["a" /* canDrink */](18));
+// import { isAdult, canDrink } from "./person";
+// console.log(isAdult(18));
+// console.log(canDrink(18));
 
 /***/ }),
-/* 1 */,
-/* 2 */
+/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return isAdult; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return canDrink; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return square; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return add; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return subtract; });
 /*jshint esversion:6*/
-const isAdult = age => (age >= 18);
-const canDrink = age => (age >= 21);
+console.log("utils.js is running");
+const square =(x)=>x * x;
+const add    =(a,b)=>a + b;
+const subtract=(a,b)=>(a-b);
+
 
 
 
