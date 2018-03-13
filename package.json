@@ -4,16 +4,23 @@
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.24.1",
     "global": "^4.3.2",
-    "live-server": "^1.2.0"
+    "live-server": "^1.2.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "validator": "^9.4.1",
+    "webpack": "^4.1.1"
   },
   "name": "indecisionapp",
   "version": "1.0.0",
   "main": "index.js",
   "author": "S.L.Mupfukudzwa",
   "license": "MIT",
-  "scripts":{
-    "serve" :"live-server public/",
-    "build":"webpack --watch",
-    "build-babel":"babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch"
+  "scripts": {
+    "serve": "live-server public/",
+    "build": "webpack --watch -d",
+    "build-babel": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch"
+  },
+  "devDependencies": {
+    "webpack-cli": "^2.0.11"
   }
 }
