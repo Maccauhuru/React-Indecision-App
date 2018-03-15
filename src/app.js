@@ -1,10 +1,12 @@
 /*jshint esversion:6*/
-// import React from 'react';
-// import ReactDOM from 'react-dom';
 
-const template = React.createElement('p', {} ,"Welcome to React!");
+import React from 'react';
+import ReactDOM from 'react-dom';
+import IndecisionApp from './components/IndecisionApp';
 
-ReactDOM.render(template,document.getElementById('app-info'));
+
+let appRoot = document.getElementById("app-info");
+ReactDOM.render(<IndecisionApp />, appRoot);
 
 
 
