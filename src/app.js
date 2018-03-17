@@ -9,6 +9,30 @@ let appRoot = document.getElementById("app-info");
 ReactDOM.render(<IndecisionApp />, appRoot);
 
 
+class oldSyntax {
+  constructor() {
+    this.name = "Mike";
+  }
+  getGreeting() {
+    return `Hi my name is ${this.name}`;
+  }
+}
+  
+const printOldSyntax = new oldSyntax();
+console.log(printOldSyntax.getGreeting());
+
+
+
+console.info("===================================================");
+class newSyntax {
+name = 'Jen';
+}
+
+const printNewSyntax = new newSyntax();
+console.info(printNewSyntax);
+
+console.info("===================================================");
+ 
 
 
 
