@@ -6,25 +6,25 @@ import Options from "./Options";
 
 export default class IndecisionApp extends React.Component {
   state = {
-    options: []
+options : []
   };
 
-  handleDeleteOptions = () => {
-    this.setState(() => ({ options: [] }));
-  };
+    handleDeleteOptions=()=> {
+    this.setState(() => ({ options: [] }))
+  }
 
-  handleDeleteOption = optionToRemove => {
+  handleDeleteOption =(optionToRemove)=> {
     this.setState(prevState => ({
       options: prevState.options.filter(option => optionToRemove !== option)
     }));
   };
 
-  handlePick = () => {
+  handlePick=()=> {
     const randNum = Math.floor(Math.random() * this.state.options.length);
     const option = this.state.options[randNum];
     alert(option);
-  };
-  handleAddOption = option => {
+  }
+  handleAddOption=(option)=> {
     if (!option) {
       return "Enter a valid value!";
     } else if (this.state.options.indexOf(option) > -1) {
@@ -33,7 +33,7 @@ export default class IndecisionApp extends React.Component {
     this.setState(prevState => ({
       options: prevState.options.concat([option])
     }));
-  };
+  };  
 
   componentDidMount() {
     try {
@@ -55,6 +55,7 @@ export default class IndecisionApp extends React.Component {
   componentWillUnmount() {
     console.log("componentWillUnmount");
   }
+
 
   render() {
     const title = "My Indecision App";

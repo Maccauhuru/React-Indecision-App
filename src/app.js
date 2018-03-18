@@ -9,27 +9,32 @@ let appRoot = document.getElementById("app-info");
 ReactDOM.render(<IndecisionApp />, appRoot);
 
 
-class oldSyntax {
+class OldSyntax {
   constructor() {
     this.name = "Mike";
+    this.getGreeting = this.getGreeting.bind(this);
   }
   getGreeting() {
     return `Hi my name is ${this.name}`;
   }
 }
   
-const printOldSyntax = new oldSyntax();
-console.log(printOldSyntax.getGreeting());
-
+const printOldSyntax = new OldSyntax();
+const getGreeting = printOldSyntax.getGreeting;
+console.log(getGreeting());
 
 
 console.info("===================================================");
-class newSyntax {
+class NewSyntax {
 name = 'Jen';
+getGreeting = ()=>{
+    return `Hi my name is ${this.name}`;
+}
 }
 
-const printNewSyntax = new newSyntax();
-console.info(printNewSyntax);
+const printNewSyntax = new NewSyntax();
+const newGetGreeting = printNewSyntax.getGreeting;
+console.log(newGetGreeting());
 
 console.info("===================================================");
  
