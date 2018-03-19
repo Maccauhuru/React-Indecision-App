@@ -4,62 +4,53 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import IndecisionApp from './components/IndecisionApp';
 
-
+const Layout = (props)=>{
+    return (<div>
+        <p>header</p>
+        {props.content}
+        <p>footer</p>     
+    </div>
+);
+};
+const template = (
+<div>
+<h1>Page Titles</h1>
+<p>page subtitle</p>
+</div>
+);
 let appRoot = document.getElementById("app-info");
-ReactDOM.render(<IndecisionApp />, appRoot);
+ReactDOM.render(<Layout content={template}/>, appRoot);
 
 
-class OldSyntax {
-  constructor() {
-    this.name = "Mike";
-    this.getGreeting = this.getGreeting.bind(this);
-  }
-  getGreeting() {
-    return `Hi my name is ${this.name}`;
-  }
-}
+// class OldSyntax {
+//   constructor() {
+//     this.name = "Mike";
+//     this.getGreeting = this.getGreeting.bind(this);
+//   }
+//   getGreeting() {
+//     return `Hi my name is ${this.name}`;
+//   }
+// }
   
-const printOldSyntax = new OldSyntax();
-const getGreeting = printOldSyntax.getGreeting;
-console.log(getGreeting());
+// const printOldSyntax = new OldSyntax();
+// const getGreeting = printOldSyntax.getGreeting;
+// console.log(getGreeting());
 
 
-console.info("===================================================");
-class NewSyntax {
-name = 'Jen';
-getGreeting = ()=>{
-    return `Hi my name is ${this.name}`;
-}
-}
+// console.info("===================================================");
+// class NewSyntax {
+// name = 'Jen';
+// getGreeting = ()=>{
+//     return `Hi my name is ${this.name}`;
+// }
+// }
 
-const printNewSyntax = new NewSyntax();
-const newGetGreeting = printNewSyntax.getGreeting;
-console.log(newGetGreeting());
+// const printNewSyntax = new NewSyntax();
+// const newGetGreeting = printNewSyntax.getGreeting;
+// console.log(newGetGreeting());
 
-console.info("===================================================");
+// console.info("===================================================");
  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
