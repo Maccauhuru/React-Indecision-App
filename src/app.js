@@ -17,7 +17,8 @@ const template = (
 </div>
 );
 let appRoot = document.getElementById("app-info");
-ReactDOM.render(<Layout content={template}/>, appRoot);
+ReactDOM.render(<IndecisionApp />,appRoot);
+//ReactDOM.render(<Layout content={template}/>, appRoot);
 
 
 // class OldSyntax {

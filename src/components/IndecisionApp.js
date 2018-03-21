@@ -3,10 +3,11 @@ import AddOption from "./AddOption";
 import Action from "./Action";
 import Header from "./Header";
 import Options from "./Options";
-
+import OptionModal from "./OptionModal";
 export default class IndecisionApp extends React.Component {
   state = {
-    options: []
+    options: [],
+    selectedOption : undefined
   };
 
   handleDeleteOptions = () => {
@@ -22,7 +23,8 @@ export default class IndecisionApp extends React.Component {
   handlePick = () => {
     const randNum = Math.floor(Math.random() * this.state.options.length);
     const option = this.state.options[randNum];
-    alert(option);
+    this.setState(()=>({selectedOption:option}));
+  //alert(option);
   };
   handleAddOption = option => {
     if (!option) {
@@ -34,6 +36,10 @@ export default class IndecisionApp extends React.Component {
       options: prevState.options.concat([option])
     }));
   };
+
+  handleClearModal = ()=>{
+    this.setState(()=>({selectedOption :undefined}));
+  }
 
   componentDidMount() {
     try {
@@ -61,6 +67,10 @@ export default class IndecisionApp extends React.Component {
     const subtitle = "Put Your Hands Where My Eyes Can See";
     return (
       <div>
+      <OptionModal 
+      selectedOption={this.state.selectedOption} 
+      handleClearModal={this.handleClearModal}
+      />
         <Header subtitle={subtitle} />
         <Action
           hasOptions={this.state.options.length > 0}
