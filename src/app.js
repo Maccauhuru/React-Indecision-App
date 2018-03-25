@@ -1,23 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import IndecisionApp from './components/IndecisionApp';
+import './styles/styles.scss';
 
-const Layout = (props)=>{
-    return (<div>
-        <p>header</p>
-        {props.content}
-        <p>footer</p>     
-    </div>
-);
-};
-const template = (
-<div>
-<h1>Page Titles</h1>
-<p>page subtitle</p>
-</div>
-);
+
 let appRoot = document.getElementById("app-info");
 ReactDOM.render(<IndecisionApp />,appRoot);
+
+// const Layout = props => {
+//   return (
+//     <div>
+//       <p>header</p>
+//       {props.content}
+//       <p>footer</p>
+//     </div>
+//   );
+// };
+// const template = (
+//   <div>
+//     <h1>Page Titles</h1>
+//     <p>page subtitle</p>
+//   </div>
+// );
+
 //ReactDOM.render(<Layout content={template}/>, appRoot);
 
 
