@@ -59,7 +59,7 @@ export default class IndecisionApp extends React.Component {
     }
   }
   componentWillUnmount() {
-    console.log("componentWillUnmount");
+    console.log("componentWillUnmountNow");
   }
 
   render() {
