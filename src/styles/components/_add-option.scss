@@ -1,9 +1,22 @@
-.add-option{
-  color: #fff;
+.add-option {
+    display: flex;
+    justify-content: flex-start;
+    padding: $m-size;
 }
 
+.add-option-error {
+    color: $off-white;
+    font-style: italic;
+    padding: $zero-size $m-size;
+    margin: $m-size 0 0 0;
+}
 
-
-.add-option-error{
-  
+.add-option__input {
+  flex-grow: 1;
+  background-color: $dark-blue;
+  border: none;
+  border-bottom: .3rem solid darken($dark-blue,10%);
+  margin-right: $s-size;
+  color: $off-white;
+  padding:$s-size;
 }
