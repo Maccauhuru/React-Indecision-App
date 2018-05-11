@@ -18,8 +18,5 @@ App that helps users decide on what activity to do next
 
 ### Status
 
-This app is currently a work in progress and the git will get updated regularly until completion.
+App is complete and fully functional
 
-####
-
-UPDATE : App is complete and fully functional
