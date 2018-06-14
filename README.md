@@ -36,7 +36,7 @@ Indecision app requires [Node.js](https://nodejs.org/) v4+ to run.
 Download or clone repository from the [Github Page](https://github.com/Maccauhuru/React-Indecision-App) and run the following commands
 
 ```sh
-$ npm istall
+$ npm install
 $ npm run build
 $ npm run dev-server
 ```
