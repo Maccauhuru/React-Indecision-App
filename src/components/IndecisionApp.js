@@ -63,8 +63,8 @@ export default class IndecisionApp extends React.Component {
   }
 
   render() {
-    const title = "My Indecision App";
-    const subtitle = "Put Your Hands Where My Eyes Can See";
+    const title = "Indecision App";
+    const subtitle = "Automate Your Decision Making";
     return <div>
         <OptionModal selectedOption={this.state.selectedOption} handleClearModal={this.handleClearModal} />
         <Header subtitle={subtitle} />
